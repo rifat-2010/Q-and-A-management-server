@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 // Connect to database
 connectDB();
 
-const PORT = process.env.PORT || 5000;
+
 
 // Only listen if not in production or if explicitly run
 if (process.env.NODE_ENV !== 'production') {
