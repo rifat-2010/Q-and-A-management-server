@@ -1,9 +1,7 @@
 const Question = require('../models/Question');
 const QuestionSet = require('../models/QuestionSet');
 
-// @desc    Add a question to a set
-// @route   POST /api/questions
-// @access  Private/Admin
+
 const addQuestion = async (req, res, next) => {
     try {
         const { questionSetId, type, questionText, options, correctAnswer, required } = req.body;
@@ -28,9 +26,7 @@ const addQuestion = async (req, res, next) => {
     }
 };
 
-// @desc    Get questions for a set
-// @route   GET /api/questions/set/:setId
-// @access  Private
+
 const getQuestionsBySetId = async (req, res, next) => {
     try {
         const questions = await Question.find({ questionSetId: req.params.setId });
@@ -40,9 +36,7 @@ const getQuestionsBySetId = async (req, res, next) => {
     }
 };
 
-// @desc    Update question
-// @route   PUT /api/questions/:id
-// @access  Private/Admin
+
 const updateQuestion = async (req, res, next) => {
     try {
         const question = await Question.findById(req.params.id);
@@ -64,9 +58,7 @@ const updateQuestion = async (req, res, next) => {
     }
 };
 
-// @desc    Delete question
-// @route   DELETE /api/questions/:id
-// @access  Private/Admin
+
 const deleteQuestion = async (req, res, next) => {
     try {
         const question = await Question.findById(req.params.id);

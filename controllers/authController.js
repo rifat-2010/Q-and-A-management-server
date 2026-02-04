@@ -34,11 +34,7 @@ const registerUser = async (req, res, next) => {
         const hashedPassword = await bcrypt.hash(password, salt);
 
         // Create user
-        // Only allow creating 'user' role by default, or maybe admin if specified?
-        // The prompt implies users register, but doesn't specify if admin registration is open.
-        // I'll allow passing role for now, but usually admin creation is restricted.
-        // Given the prompt "Admin can Create and manage question sets", I'll assume standard registration for both or just users.
-        // Let's allow passing role, as per schema default it is 'user'.
+      
         const user = await User.create({
             name,
             email,

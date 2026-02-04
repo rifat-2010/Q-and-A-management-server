@@ -1,9 +1,7 @@
 const QuestionSet = require('../models/QuestionSet');
 const User = require('../models/User');
 
-// @desc    Create a new question set
-// @route   POST /api/question-sets
-// @access  Private/Admin
+
 const createQuestionSet = async (req, res, next) => {
     try {
         const { title, description } = req.body;
@@ -25,9 +23,6 @@ const createQuestionSet = async (req, res, next) => {
     }
 };
 
-// @desc    Get all question sets
-// @route   GET /api/question-sets
-// @access  Private
 const getQuestionSets = async (req, res, next) => {
     try {
         const questionSets = await QuestionSet.find().populate('createdBy', 'name');
@@ -37,9 +32,7 @@ const getQuestionSets = async (req, res, next) => {
     }
 };
 
-// @desc    Get question set by ID
-// @route   GET /api/question-sets/:id
-// @access  Private
+
 const getQuestionSetById = async (req, res, next) => {
     try {
         const questionSet = await QuestionSet.findById(req.params.id).populate('createdBy', 'name');
@@ -55,9 +48,7 @@ const getQuestionSetById = async (req, res, next) => {
     }
 };
 
-// @desc    Update question set
-// @route   PUT /api/question-sets/:id
-// @access  Private/Admin
+
 const updateQuestionSet = async (req, res, next) => {
     try {
         const questionSet = await QuestionSet.findById(req.params.id);
@@ -85,9 +76,7 @@ const updateQuestionSet = async (req, res, next) => {
     }
 };
 
-// @desc    Delete question set
-// @route   DELETE /api/question-sets/:id
-// @access  Private/Admin
+
 const deleteQuestionSet = async (req, res, next) => {
     try {
         const questionSet = await QuestionSet.findById(req.params.id);

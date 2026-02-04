@@ -1,8 +1,6 @@
 const Response = require('../models/Response');
 
-// @desc    Submit a response
-// @route   POST /api/responses
-// @access  Private
+
 const createResponse = async (req, res, next) => {
     try {
         const { questionSetId, answers } = req.body;
@@ -24,9 +22,7 @@ const createResponse = async (req, res, next) => {
     }
 };
 
-// @desc    Get all responses
-// @route   GET /api/responses
-// @access  Private/Admin
+
 const getResponses = async (req, res, next) => {
     try {
         const responses = await Response.find()
@@ -38,9 +34,7 @@ const getResponses = async (req, res, next) => {
     }
 };
 
-// @desc    Get response by ID
-// @route   GET /api/responses/:id
-// @access  Private/Admin
+
 const getResponseById = async (req, res, next) => {
     try {
         const response = await Response.findById(req.params.id)
